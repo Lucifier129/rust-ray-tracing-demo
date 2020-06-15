@@ -3,7 +3,7 @@ use std::io;
 
 use crate::vec3::Vec3;
 
-static FILENAME: &'static str = "images/02.ppm";
+static FILENAME: &'static str = "images/01.ppm";
 
 pub fn run() -> io::Result<()> {
   let image_width = 256;
