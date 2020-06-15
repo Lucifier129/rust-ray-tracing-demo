@@ -1,6 +1,8 @@
 use std::env;
 use std::io;
 
+mod vec3;
+
 mod demo0;
 mod demo1;
 mod demo2;
