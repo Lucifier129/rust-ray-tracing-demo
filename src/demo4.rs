@@ -4,7 +4,7 @@ use std::io;
 use crate::ray::Ray;
 use crate::vec3::Vec3;
 
-static FILENAME: &'static str = "images/04.ppm";
+static FILENAME: &'static str = "dist/04.ppm";
 
 fn lerp(t: f64, start: &Vec3, end: &Vec3) -> Vec3 {
   (1.0 - t) * start + t * end

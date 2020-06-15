@@ -1,7 +1,7 @@
 use std::fs;
 use std::io;
 
-static FILENAME: &'static str = "images/00.ppm";
+static FILENAME: &'static str = "dist/00.ppm";
 
 pub fn run() -> io::Result<()> {
   let image_width = 256;
