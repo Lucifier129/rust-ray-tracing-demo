@@ -157,13 +157,14 @@ impl Vec3 {
   }
 
   pub fn length_squared(&self) -> f64 {
-    self.0.exp2() + self.1.exp2() + self.2.exp2()
+    self.0.powi(2) + self.1.powi(2) + self.2.powi(2)
   }
 
   pub fn to_rgb_string(&self) -> String {
-    let ir = (255.999 * &self.r()) as u32;
-    let ig = (255.999 * &self.g()) as u32;
-    let ib = (255.999 * &self.b()) as u32;
+    let Vec3(r, g, b) = &self;
+    let ir = (255.999 * r) as u32;
+    let ig = (255.999 * g) as u32;
+    let ib = (255.999 * b) as u32;
 
     format!("{} {} {}\n", ir, ig, ib)
   }

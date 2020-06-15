@@ -23,7 +23,7 @@ fn main() -> io::Result<()> {
             1 => demo1::run()?,
             2 => demo2::run()?,
             3 => demo3::run()?,
-            4 => demo4::run(),
+            4 => demo4::run()?,
             _ => panic!("demo{} is not implemented yet", n),
         }
     } else {
