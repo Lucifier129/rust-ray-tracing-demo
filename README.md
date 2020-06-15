@@ -8,4 +8,4 @@ The rust implementation of [Ray Tracing in One Weekend](https://raytracing.githu
 cargo run {number}
 ```
 
-Run `cargo run 0` to generate `images/01.ppm`(you can download `.ppm` viewer to view the images).
+For example, Run `cargo run 0` to generate `images/01.ppm`(you can download `.ppm` viewer to view the images).
