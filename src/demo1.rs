@@ -1,9 +1,32 @@
+use std::fs;
+use std::io;
+
 use crate::vec3::Vec3;
 
-pub fn run() {
-  let a = Vec3(0.0, 0.0, 1.0);
-  let b = Vec3(1.0, 1.0, 0.0);
-  let c = &a + &b;
+static FILENAME: &'static str = "images/02.ppm";
 
-  println!("{:?} + {:?} = {:?}", a, b, c);
+pub fn run() -> io::Result<()> {
+  let image_width = 256;
+  let image_height = 256;
+
+  let part0 = format!("P3\n{} {}\n255\n", image_width, image_height);
+
+  let mut contents = String::from(part0);
+
+  for j in (0..image_height).rev() {
+    for i in 0..image_width {
+      let j = j as f64;
+      let i = i as f64;
+      let w = image_width as f64;
+      let h = image_height as f64;
+
+      let color = Vec3(i / w, j / h, 0.25);
+
+      contents.push_str(&color.to_rgb_string());
+    }
+  }
+
+  fs::write(FILENAME, contents.as_bytes())?;
+
+  Ok(())
 }

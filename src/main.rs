@@ -2,6 +2,7 @@ use std::env;
 use std::io;
 
 mod vec3;
+mod ray;
 
 mod demo0;
 mod demo1;
@@ -19,8 +20,8 @@ fn main() -> io::Result<()> {
     if let Ok(n) = args[1].parse::<u8>() {
         match n {
             0 => demo0::run()?,
-            1 => demo1::run(),
-            2 => demo2::run(),
+            1 => demo1::run()?,
+            2 => demo2::run()?,
             3 => demo3::run(),
             4 => demo4::run(),
             _ => panic!("demo{} is not implemented yet", n),
