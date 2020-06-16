@@ -11,6 +11,6 @@ impl Ray {
   }
 
   pub fn at(&self, t: f64) -> Vec3 {
-    &self.origin + &(t * &self.direction)
+    self.origin + t * self.direction
   }
 }

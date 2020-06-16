@@ -6,18 +6,18 @@ use crate::vec3::Vec3;
 
 static FILENAME: &'static str = "dist/02.ppm";
 
-fn lerp(t: f64, start: &Vec3, end: &Vec3) -> Vec3 {
+fn lerp(t: f64, start: Vec3, end: Vec3) -> Vec3 {
   (1.0 - t) * start + (t * end)
 }
 
 fn ray_color(ray: &Ray) -> Vec3 {
-  let unit_direction = Vec3::unit_vector(&ray.direction);
+  let unit_direction = ray.direction.unit_vector();
   let t = 0.5 * (unit_direction.y() + 1.0);
 
   let from = Vec3(1.0, 1.0, 1.0);
   let to = Vec3(0.5, 0.7, 1.0);
 
-  lerp(t, &from, &to)
+  lerp(t, from, to)
 }
 
 pub fn run() -> io::Result<()> {

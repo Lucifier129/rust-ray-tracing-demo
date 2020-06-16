@@ -6,15 +6,15 @@ use crate::vec3::Vec3;
 
 static FILENAME: &'static str = "dist/04.ppm";
 
-fn lerp(t: f64, start: &Vec3, end: &Vec3) -> Vec3 {
-  (1.0 - t) * start + t * end
+fn lerp(t: f64, start: Vec3, end: Vec3) -> Vec3 {
+  (1.0 - t) * start + (t * end)
 }
 
-fn hit_sphere(center: &Vec3, radius: f64, ray: &Ray) -> f64 {
-  let oc = &ray.origin - center;
-  let a = Vec3::dot(&ray.direction, &ray.direction);
-  let b = 2.0 * Vec3::dot(&oc, &ray.direction);
-  let c = Vec3::dot(&oc, &oc) - radius * radius;
+fn hit_sphere(center: Vec3, radius: f64, ray: &Ray) -> f64 {
+  let oc = ray.origin - center;
+  let a = ray.direction.dot(ray.direction);
+  let b = 2.0 * oc.dot(ray.direction);
+  let c = oc.dot(oc) - radius * radius;
   let discriminant = b * b - 4.0 * a * c;
 
   if discriminant < 0.0 {
@@ -26,11 +26,11 @@ fn hit_sphere(center: &Vec3, radius: f64, ray: &Ray) -> f64 {
 
 fn ray_color(ray: &Ray) -> Vec3 {
   let center = Vec3(0.0, 0.0, -1.0);
-  let t = hit_sphere(&center, 0.5, &ray);
+  let t = hit_sphere(center, 0.5, &ray);
 
   if t > 0.0 {
     let vec = ray.at(t) - center;
-    let Vec3(x, y, z) = Vec3::unit_vector(&vec);
+    let Vec3(x, y, z) = vec.unit_vector();
 
     return Vec3(x + 1.0, y + 1.0, z + 1.0) / 2.0;
   }
@@ -41,7 +41,7 @@ fn ray_color(ray: &Ray) -> Vec3 {
   let from = Vec3(1.0, 1.0, 1.0);
   let to = Vec3(0.5, 0.7, 1.0);
 
-  lerp(t, &from, &to)
+  lerp(t, from, to)
 }
 
 pub fn run() -> io::Result<()> {
