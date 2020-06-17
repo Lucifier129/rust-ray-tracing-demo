@@ -29,6 +29,15 @@ impl Vec3 {
     self.2
   }
 
+  pub fn to_rgb_string(&self) -> String {
+    let Vec3(r, g, b) = *self;
+    let ir = (256.0 * clamp(r, 0.0, 0.999)) as u32;
+    let ig = (256.0 * clamp(g, 0.0, 0.999)) as u32;
+    let ib = (256.0 * clamp(b, 0.0, 0.999)) as u32;
+
+    format!("{} {} {}\n", ir, ig, ib)
+  }
+
   pub fn len(&self) -> f64 {
     self.length_squared().sqrt()
   }
@@ -37,13 +46,8 @@ impl Vec3 {
     self.0.powi(2) + self.1.powi(2) + self.2.powi(2)
   }
 
-  pub fn to_rgb_string(&self) -> String {
-    let Vec3(r, g, b) = *self;
-    let ir = (256.0 * clamp(r, 0.0, 0.999)) as u32;
-    let ig = (256.0 * clamp(g, 0.0, 0.999)) as u32;
-    let ib = (256.0 * clamp(b, 0.0, 0.999)) as u32;
-
-    format!("{} {} {}\n", ir, ig, ib)
+  pub fn sqrt(&self) -> Vec3 {
+    Vec3(self.0.sqrt(), self.1.sqrt(), self.2.sqrt())
   }
 
   pub fn dot(&self, v: Vec3) -> f64 {
@@ -93,6 +97,22 @@ impl Vec3 {
       } else {
         return point;
       }
+    }
+  }
+
+  pub fn random_unit_vector() -> Vec3 {
+    let a = random_in(0.0, std::f64::consts::PI);
+    let z = random_in(-1.0, 1.0);
+    let r = (1.0 - z.powi(2)).sqrt();
+    Vec3(r * a.cos(), r * a.sin(), z)
+  }
+
+  pub fn random_in_hemisphere(normal: Vec3) -> Vec3 {
+    let in_unit_sphere = Vec3::random_in_unit_sphere();
+    if in_unit_sphere.dot(normal) > 0.0 {
+      in_unit_sphere
+    } else {
+      -in_unit_sphere
     }
   }
 }
