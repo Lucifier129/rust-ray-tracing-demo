@@ -1,3 +1,4 @@
+use crate::utils::clamp;
 use std::ops;
 
 #[derive(Debug, Clone, Copy)]
@@ -99,10 +100,10 @@ impl Vec3 {
   }
 
   pub fn to_rgb_string(&self) -> String {
-    let Vec3(r, g, b) = self;
-    let ir = (255.999 * r) as u32;
-    let ig = (255.999 * g) as u32;
-    let ib = (255.999 * b) as u32;
+    let Vec3(r, g, b) = *self;
+    let ir = (256.0 * clamp(r, 0.0, 0.999)) as u32;
+    let ig = (256.0 * clamp(g, 0.0, 0.999)) as u32;
+    let ib = (256.0 * clamp(b, 0.0, 0.999)) as u32;
 
     format!("{} {} {}\n", ir, ig, ib)
   }
@@ -128,6 +129,10 @@ impl Vec3 {
   pub fn eq(&self, b: Vec3) -> bool {
     let a = self;
     a.0 == b.0 && a.1 == b.1 && a.2 == b.2
+  }
+
+  pub fn lerp(t: f64, start: Vec3, end: Vec3) -> Vec3 {
+    (1.0 - t) * start + (t * end)
   }
 }
 
