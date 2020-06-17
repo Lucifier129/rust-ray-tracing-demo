@@ -1,70 +1,8 @@
-use crate::utils::clamp;
+use crate::utils::{clamp, random, random_in};
 use std::ops;
 
 #[derive(Debug, Clone, Copy)]
 pub struct Vec3(pub f64, pub f64, pub f64);
-
-// Vec3 + Vec3
-impl ops::Add<Vec3> for Vec3 {
-  type Output = Vec3;
-
-  fn add(self, rhs: Vec3) -> Vec3 {
-    Vec3(self.0 + rhs.0, self.1 + rhs.1, self.2 + rhs.2)
-  }
-}
-
-// Vec3 - Vec3
-impl ops::Sub<Vec3> for Vec3 {
-  type Output = Vec3;
-
-  fn sub(self, rhs: Vec3) -> Vec3 {
-    Vec3(self.0 - rhs.0, self.1 - rhs.1, self.2 - rhs.2)
-  }
-}
-
-// Vec3 * Vec3
-impl ops::Mul<Vec3> for Vec3 {
-  type Output = Vec3;
-
-  fn mul(self, rhs: Vec3) -> Vec3 {
-    Vec3(self.0 * rhs.0, self.1 * rhs.1, self.2 * rhs.2)
-  }
-}
-
-// Vec3 * f64
-impl ops::Mul<f64> for Vec3 {
-  type Output = Vec3;
-
-  fn mul(self, rhs: f64) -> Vec3 {
-    Vec3(self.0 * rhs, self.1 * rhs, self.2 * rhs)
-  }
-}
-
-// f64 * Vec3
-impl ops::Mul<Vec3> for f64 {
-  type Output = Vec3;
-
-  fn mul(self, rhs: Vec3) -> Vec3 {
-    rhs * self
-  }
-}
-
-// Vec3 / f64
-impl ops::Div<f64> for Vec3 {
-  type Output = Vec3;
-
-  fn div(self, rhs: f64) -> Vec3 {
-    (1.0 / rhs) * self
-  }
-}
-
-// -Vec3
-impl ops::Neg for Vec3 {
-  type Output = Vec3;
-  fn neg(self) -> Vec3 {
-    -1.0 * self
-  }
-}
 
 impl Vec3 {
   pub fn x(&self) -> f64 {
@@ -133,6 +71,91 @@ impl Vec3 {
 
   pub fn lerp(t: f64, start: Vec3, end: Vec3) -> Vec3 {
     (1.0 - t) * start + (t * end)
+  }
+
+  pub fn random() -> Vec3 {
+    Vec3(random(), random(), random())
+  }
+
+  pub fn random_in(min: f64, max: f64) -> Vec3 {
+    Vec3(
+      random_in(min, max),
+      random_in(min, max),
+      random_in(min, max),
+    )
+  }
+
+  pub fn random_in_unit_sphere() -> Vec3 {
+    loop {
+      let point = Vec3::random_in(-1.0, 1.0);
+      if point.length_squared() >= 1.0 {
+        continue;
+      } else {
+        return point;
+      }
+    }
+  }
+}
+
+// Vec3 + Vec3
+impl ops::Add<Vec3> for Vec3 {
+  type Output = Vec3;
+
+  fn add(self, rhs: Vec3) -> Vec3 {
+    Vec3(self.0 + rhs.0, self.1 + rhs.1, self.2 + rhs.2)
+  }
+}
+
+// Vec3 - Vec3
+impl ops::Sub<Vec3> for Vec3 {
+  type Output = Vec3;
+
+  fn sub(self, rhs: Vec3) -> Vec3 {
+    Vec3(self.0 - rhs.0, self.1 - rhs.1, self.2 - rhs.2)
+  }
+}
+
+// Vec3 * Vec3
+impl ops::Mul<Vec3> for Vec3 {
+  type Output = Vec3;
+
+  fn mul(self, rhs: Vec3) -> Vec3 {
+    Vec3(self.0 * rhs.0, self.1 * rhs.1, self.2 * rhs.2)
+  }
+}
+
+// Vec3 * f64
+impl ops::Mul<f64> for Vec3 {
+  type Output = Vec3;
+
+  fn mul(self, rhs: f64) -> Vec3 {
+    Vec3(self.0 * rhs, self.1 * rhs, self.2 * rhs)
+  }
+}
+
+// f64 * Vec3
+impl ops::Mul<Vec3> for f64 {
+  type Output = Vec3;
+
+  fn mul(self, rhs: Vec3) -> Vec3 {
+    rhs * self
+  }
+}
+
+// Vec3 / f64
+impl ops::Div<f64> for Vec3 {
+  type Output = Vec3;
+
+  fn div(self, rhs: f64) -> Vec3 {
+    (1.0 / rhs) * self
+  }
+}
+
+// -Vec3
+impl ops::Neg for Vec3 {
+  type Output = Vec3;
+  fn neg(self) -> Vec3 {
+    -1.0 * self
   }
 }
 

@@ -1,4 +1,3 @@
-use crate::vec3::Vec3;
 use rand;
 
 pub fn random() -> f64 {

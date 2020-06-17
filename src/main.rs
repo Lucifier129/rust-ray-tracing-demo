@@ -16,6 +16,7 @@ mod demo3;
 mod demo4;
 mod demo5;
 mod demo6;
+mod demo7;
 
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
@@ -33,6 +34,7 @@ fn main() -> io::Result<()> {
             4 => demo4::run()?,
             5 => demo5::run()?,
             6 => demo6::run()?,
+            7 => demo7::run()?,
             _ => panic!("demo{} is not implemented yet", n),
         }
     } else {

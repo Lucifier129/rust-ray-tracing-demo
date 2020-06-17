@@ -35,3 +35,7 @@ For example, Run `cargo run 0` to generate `dist/00.ppm`(you can download `.ppm`
 ### demo6
 
 ![04](images/06.png)
+
+### demo7
+
+![04](images/07.png)

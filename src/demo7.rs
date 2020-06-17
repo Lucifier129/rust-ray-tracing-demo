@@ -1,5 +1,6 @@
 use std::fs;
 use std::io;
+use std::time::Instant;
 
 use crate::camera::Camera;
 use crate::hittable::{HitRecord, Hittable};
@@ -9,16 +10,22 @@ use crate::sphere::Sphere;
 use crate::utils::random;
 use crate::vec3::Vec3;
 
-static FILENAME: &'static str = "dist/06.ppm";
+static FILENAME: &'static str = "dist/07.ppm";
 
-fn ray_color<W>(ray: &Ray, world: &W) -> Vec3
+fn ray_color<W>(ray: &Ray, world: &W, depth: u64) -> Vec3
 where
   W: Hittable,
 {
+  if depth <= 0 {
+    return Vec3(0.0, 0.0, 0.0);
+  }
+
   let mut record = HitRecord::new();
 
   if world.hit(&ray, 0.0, f64::INFINITY, &mut record) {
-    return 0.5 * (record.normal + Vec3(1.0, 1.0, 1.0));
+    let target = record.point + record.normal + Vec3::random_in_unit_sphere();
+    let ray = Ray::new(record.point, target - record.point);
+    return 0.5 * ray_color(&ray, world, depth - 1);
   }
 
   let unit_direction = Vec3::unit_vector(&ray.direction);
@@ -36,6 +43,7 @@ pub fn run() -> io::Result<()> {
   let image_height = ((image_width as f64) / aspect_ratio) as i32;
 
   let samples_per_pixel = 100;
+  let max_depth = 50;
 
   let part0 = format!("P3\n{} {}\n255\n", image_width, image_height);
   let mut contents = String::from(part0);
@@ -59,6 +67,8 @@ pub fn run() -> io::Result<()> {
   world.add(Box::new(sphere_0));
   world.add(Box::new(sphere_1));
 
+  let start = Instant::now();
+
   for j in (0..image_height).rev() {
     for i in 0..image_width {
       let j = j as f64;
@@ -72,13 +82,17 @@ pub fn run() -> io::Result<()> {
         let u = (i + random()) / (w - 1.0);
         let v = (j + random()) / (h - 1.0);
         let ray = camera.get_ray(u, v);
-        color = color + ray_color(&ray, &world);
+        color = color + ray_color(&ray, &world, max_depth);
       }
 
       color = color / (samples_per_pixel as f64);
       contents.push_str(&color.to_rgb_string());
     }
   }
+
+  let duration = start.elapsed();
+
+  println!("Ray Tracing taked time: {:?}", duration);
 
   fs::write(FILENAME, contents.as_bytes())?;
 
