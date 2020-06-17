@@ -1,14 +1,18 @@
 use std::env;
 use std::io;
 
-mod vec3;
+mod hittable;
+mod hittable_list;
 mod ray;
+mod sphere;
+mod vec3;
 
 mod demo0;
 mod demo1;
 mod demo2;
 mod demo3;
 mod demo4;
+mod demo5;
 
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
@@ -24,6 +28,7 @@ fn main() -> io::Result<()> {
             2 => demo2::run()?,
             3 => demo3::run()?,
             4 => demo4::run()?,
+            5 => demo5::run()?,
             _ => panic!("demo{} is not implemented yet", n),
         }
     } else {
