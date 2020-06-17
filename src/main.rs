@@ -4,22 +4,13 @@ use std::io;
 mod camera;
 mod hittable;
 mod hittable_list;
+mod material;
 mod ray;
 mod sphere;
 mod utils;
 mod vec3;
-mod material;
 
-mod demo0;
-mod demo1;
-mod demo2;
-mod demo3;
-mod demo4;
-mod demo5;
-mod demo6;
-mod demo7;
-mod demo8;
-mod demo9;
+mod demos;
 
 type Demos = Vec<Box<dyn Fn() -> io::Result<()>>>;
 
@@ -31,16 +22,16 @@ fn main() -> io::Result<()> {
     }
 
     let demos: Demos = vec![
-        Box::new(demo0::run),
-        Box::new(demo1::run),
-        Box::new(demo2::run),
-        Box::new(demo3::run),
-        Box::new(demo4::run),
-        Box::new(demo5::run),
-        Box::new(demo6::run),
-        Box::new(demo7::run),
-        Box::new(demo8::run),
-        Box::new(demo9::run),
+        Box::new(demos::demo00::run),
+        Box::new(demos::demo01::run),
+        Box::new(demos::demo02::run),
+        Box::new(demos::demo03::run),
+        Box::new(demos::demo04::run),
+        Box::new(demos::demo05::run),
+        Box::new(demos::demo06::run),
+        Box::new(demos::demo07::run),
+        Box::new(demos::demo08::run),
+        Box::new(demos::demo09::run),
     ];
 
     let length = demos.len();

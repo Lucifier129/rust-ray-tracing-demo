@@ -35,7 +35,7 @@ pub fn run() -> io::Result<()> {
   let image_width = 384;
   let image_height = ((image_width as f64) / aspect_ratio) as i32;
 
-  let samples_per_pixel = 100;
+  let samples_per_pixel = 50;
 
   let part0 = format!("P3\n{} {}\n255\n", image_width, image_height);
   let mut contents = String::from(part0);
