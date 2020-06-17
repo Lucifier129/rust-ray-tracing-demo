@@ -5,6 +5,9 @@ use std::ops;
 pub struct Vec3(pub f64, pub f64, pub f64);
 
 impl Vec3 {
+  pub fn fill(v: f64) -> Vec3 {
+    Vec3(v, v, v)
+  }
   pub fn x(&self) -> f64 {
     self.0
   }
@@ -114,6 +117,10 @@ impl Vec3 {
     } else {
       -in_unit_sphere
     }
+  }
+
+  pub fn reflect(v: Vec3, n: Vec3) -> Vec3 {
+    v - 2.0 * v.dot(n) * n
   }
 }
 

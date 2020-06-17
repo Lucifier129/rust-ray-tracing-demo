@@ -10,6 +10,8 @@ cargo run {number}
 
 For example, Run `cargo run 0` to generate `dist/00.ppm`(you can download `.ppm` viewer to view the images).
 
+***cargo run **** to run all demos.
+
 ## Images
 
 ### demo0 & demo1
@@ -30,12 +32,20 @@ For example, Run `cargo run 0` to generate `dist/00.ppm`(you can download `.ppm`
 
 ### demo5
 
-![04](images/05.png)
+![05](images/05.png)
 
 ### demo6
 
-![04](images/06.png)
+![06](images/06.png)
 
 ### demo7
 
-![04](images/07.png)
+![07](images/07.png)
+
+### demo8
+
+![08](images/08.png)
+
+### demo9
+
+![09](images/09.png)

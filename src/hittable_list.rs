@@ -1,4 +1,5 @@
 use crate::hittable::{HitRecord, Hittable};
+use crate::material::{DefaultMaterial, Material};
 use crate::ray::Ray;
 
 pub struct HittableList {
