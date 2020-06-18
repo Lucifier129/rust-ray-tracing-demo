@@ -119,6 +119,17 @@ impl Vec3 {
     }
   }
 
+  pub fn random_in_unit_disk() -> Vec3 {
+    loop {
+      let point = Vec3(random_in(-1.0, 1.0), random_in(-1.0, 1.0), 0.0);
+      if point.length_squared() >= 1.0 {
+        continue
+      } else {
+        return point
+      }
+    }
+  }
+
   pub fn reflect(v: Vec3, n: Vec3) -> Vec3 {
     v - 2.0 * v.dot(n) * n
   }
