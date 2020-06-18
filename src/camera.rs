@@ -138,7 +138,7 @@ impl LensCamera {
       vertical,
       u,
       v,
-      w,
+      w: _w,
       lens_radius,
     } = *self;
 

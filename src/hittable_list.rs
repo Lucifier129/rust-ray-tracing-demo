@@ -1,3 +1,4 @@
+#[warn(dead_code)]
 use crate::hittable::{HitRecord, Hittable};
 use crate::ray::Ray;
 
@@ -14,7 +15,7 @@ impl HittableList {
     self.objects = vec![];
   }
 
-  pub fn add(&mut self, object: Box<dyn Hittable>) {
+  pub fn add(&mut self, object: Box<dyn Hittable + Send>) {
     self.objects.push(object);
   }
 }

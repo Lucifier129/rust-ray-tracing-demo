@@ -8,5 +8,5 @@ edition = "2018"
 
 [dependencies]
 
-matrix = "0.22.0"
 rand = "0.7.3"
+threadpool = "1.8.1"

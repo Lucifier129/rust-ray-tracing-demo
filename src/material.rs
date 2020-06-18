@@ -5,7 +5,7 @@ use crate::ray::Ray;
 use crate::utils::random;
 use crate::vec3::Vec3;
 
-pub trait Material: Debug {
+pub trait Material: Debug + Send + Sync {
   fn scatter(
     &mut self,
     ray_in: &Ray,

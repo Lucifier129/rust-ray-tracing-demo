@@ -36,6 +36,7 @@ fn main() -> io::Result<()> {
         Box::new(demos::demo11::run),
         Box::new(demos::demo12::run),
         Box::new(demos::demo13::run),
+        Box::new(demos::demo14::run),
     ];
 
     let length = demos.len();
