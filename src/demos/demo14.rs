@@ -118,12 +118,12 @@ type Pixels = Vec<Vec3>;
 
 pub fn run() -> io::Result<()> {
   let aspect_ratio = 16.0 / 9.0;
-  let image_width = 384;
+  let image_width = 800;
   let image_height = ((image_width as f64) / aspect_ratio) as i32;
 
   let pixels_size = (image_width * image_height) as usize;
 
-  let samples_per_pixel = 50;
+  let samples_per_pixel = 100;
   let max_depth = 50;
 
   let part0 = format!("P3\n{} {}\n255\n", image_width, image_height);

@@ -5,7 +5,11 @@ The rust implementation of [Ray Tracing in One Weekend](https://raytracing.githu
 ## How to run？
 
 ```shell
+# dev mode, compile fast
 cargo run {number}
+
+# prod mode, run fast
+cargo run --release {number}
 ```
 
 For example, Run `cargo run 0` to generate `dist/00.ppm`(you can download `.ppm` viewer to view the images).
