@@ -1,0 +1,12 @@
+{
+  "name": "ray-tracing-wasm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pkg/ray_tracing_wasm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

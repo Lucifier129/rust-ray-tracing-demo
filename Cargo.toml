@@ -1,5 +1,5 @@
 [package]
-name = "common"
+name = "ray_tracing"
 version = "0.1.0"
 authors = ["Jade Gu <guyingjie129@163.com>"]
 edition = "2018"
