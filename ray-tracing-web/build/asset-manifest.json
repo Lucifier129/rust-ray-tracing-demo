@@ -1,0 +1,28 @@
+{
+  "files": {
+    "static/js/0.d56b4d64.chunk.js": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/0.d56b4d64.chunk.js",
+    "2f12cff2dc7a378c4317.module.wasm": "/rust-ray-tracing-demo/ray-tracing-web/build/2f12cff2dc7a378c4317.module.wasm",
+    "static/js/0.d56b4d64.chunk.js.map": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/0.d56b4d64.chunk.js.map",
+    "main.css": "/rust-ray-tracing-demo/ray-tracing-web/build/static/css/main.bd8c9455.chunk.css",
+    "main.js": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/main.bd68855b.chunk.js",
+    "main.js.map": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/main.bd68855b.chunk.js.map",
+    "runtime-main.js": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/runtime-main.c601d113.js",
+    "runtime-main.js.map": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/runtime-main.c601d113.js.map",
+    "static/css/3.3cb76441.chunk.css": "/rust-ray-tracing-demo/ray-tracing-web/build/static/css/3.3cb76441.chunk.css",
+    "static/js/3.7c9e6739.chunk.js": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/3.7c9e6739.chunk.js",
+    "static/js/3.7c9e6739.chunk.js.map": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/3.7c9e6739.chunk.js.map",
+    "index.html": "/rust-ray-tracing-demo/ray-tracing-web/build/index.html",
+    "precache-manifest.fec254e1eba100b783afe4fa9e4974ed.js": "/rust-ray-tracing-demo/ray-tracing-web/build/precache-manifest.fec254e1eba100b783afe4fa9e4974ed.js",
+    "service-worker.js": "/rust-ray-tracing-demo/ray-tracing-web/build/service-worker.js",
+    "static/css/3.3cb76441.chunk.css.map": "/rust-ray-tracing-demo/ray-tracing-web/build/static/css/3.3cb76441.chunk.css.map",
+    "static/css/main.bd8c9455.chunk.css.map": "/rust-ray-tracing-demo/ray-tracing-web/build/static/css/main.bd8c9455.chunk.css.map",
+    "static/js/3.7c9e6739.chunk.js.LICENSE.txt": "/rust-ray-tracing-demo/ray-tracing-web/build/static/js/3.7c9e6739.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c601d113.js",
+    "static/css/3.3cb76441.chunk.css",
+    "static/js/3.7c9e6739.chunk.js",
+    "static/css/main.bd8c9455.chunk.css",
+    "static/js/main.bd68855b.chunk.js"
+  ]
+}
