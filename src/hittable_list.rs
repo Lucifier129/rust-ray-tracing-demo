@@ -1,4 +1,4 @@
-#[warn(dead_code)]
+#![allow(dead_code)]
 use crate::hittable::{HitRecord, Hittable};
 use crate::ray::Ray;
 

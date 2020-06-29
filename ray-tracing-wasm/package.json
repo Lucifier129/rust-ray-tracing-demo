@@ -2,7 +2,8 @@
   "name": "ray-tracing-wasm",
   "version": "1.0.0",
   "description": "",
-  "main": "pkg/ray_tracing_wasm.js",
+  "main": "pkg/index.js",
+  "types": "pkg/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

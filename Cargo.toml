@@ -8,5 +8,9 @@ edition = "2018"
 
 [dependencies]
 
-rand = "0.7.3"
+# rand = "0.7.3"
 threadpool = "1.8.1"
+
+[dependencies.rand]
+version = "0.7.3"
+features = ["wasm-bindgen"]
